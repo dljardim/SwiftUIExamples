@@ -1,0 +1,16 @@
+[
+    {
+        "id":"b64d7c24-568d-4515-9ddc-dd2d5293fa04",
+        "name":"John Doe",
+        "age": 11,
+        "email": "johnemail@gmail.com",
+        "isActive":true
+    },
+    {
+        "id":"7d7fc68e-5ceb-4f0d-82c0-7d66cfbf6764",
+        "name":"Jane Smith",
+        "age":25,
+        "email": "janeemail@gmail.com"
+        "isActive":true
+    }
+]

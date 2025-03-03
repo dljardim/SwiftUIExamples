@@ -1,0 +1,13 @@
+
+[
+    {
+        "id": 1,
+        "title": "Buy groceries",
+        "isCompleted": false
+    },
+    {
+        "id": 2,
+        "title": "Walk the dog",
+        "isCompleted": true
+    }
+]

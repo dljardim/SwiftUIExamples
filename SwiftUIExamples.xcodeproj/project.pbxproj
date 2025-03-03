@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3337701B2D749AF8009B8874 /* _DevNotes.md in Resources */ = {isa = PBXBuildFile; fileRef = 3337701A2D749AF8009B8874 /* _DevNotes.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		333770052D74053D009B8874 /* SwiftUIExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3337701A2D749AF8009B8874 /* _DevNotes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = _DevNotes.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -32,6 +37,7 @@
 		33376FFC2D74053D009B8874 = {
 			isa = PBXGroup;
 			children = (
+				3337701A2D749AF8009B8874 /* _DevNotes.md */,
 				333770072D74053D009B8874 /* SwiftUIExamples */,
 				333770062D74053D009B8874 /* Products */,
 			);
@@ -109,6 +115,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3337701B2D749AF8009B8874 /* _DevNotes.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
