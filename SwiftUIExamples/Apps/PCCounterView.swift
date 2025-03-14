@@ -7,12 +7,41 @@
 
 import SwiftUI
 
-struct PCCounterView: View {
+struct PCParentView: View{
+    
+    @State private var parentCount: Int = 0
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            
+            Text("PCParentView - Count: \(parentCount)")
+            
+            PCCounterView(childCount: $parentCount)
+            
+           
+        }
     }
 }
 
+struct PCCounterView: View {
+    @Binding var childCount: Int
+    
+    var body: some View {
+        Text("PCCounterView")
+        
+        Text("PCCounterView - Count: \(childCount)")
+        
+        Button("increase"){
+            childCount += 1
+        }
+        
+        Button("decrease"){
+            childCount -= 1
+        }
+    }
+}
+
+
 #Preview {
-    PCCounterView()
+    PCParentView()
 }
