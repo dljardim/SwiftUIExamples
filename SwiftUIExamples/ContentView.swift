@@ -9,30 +9,12 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @State private var people: [Person] = []
-    
     var body: some View{
-        NavigationStack{
-            List{
-                ForEach(people, id: \.self.id){ person in
-                    Text("person: \(person.name)")
-                }
-            }
-        }.onAppear(perform: loadData)
-    }
-    
-    func loadData() {
-        if let url = Bundle.main.url(forResource: "data", withExtension: "json") {
-            if let data = try? Data(contentsOf: url) {
-                let decoder = JSONDecoder()
-                if let decodedData = try? decoder.decode([Person].self, from: data) {
-                    people = decodedData
-                }
-            }
-        }
+        Text("ContentView")
+        SpellBook()
+        
     }
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

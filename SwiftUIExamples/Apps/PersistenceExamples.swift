@@ -226,35 +226,37 @@ struct PersistenceExamples_FavoriteColorString3: View {
     }
 }
 
+struct FavoriteColorPersistenceViewStruct_FavoriteColorStruct: Codable {
+    let favoriteColor: String
+    let TimeStamp: Date
+}
 
 
-struct FavoriteColorPersistenceView: View {
+struct FavoriteColorPersistenceViewStruct: View {
     private let favoriteKey = "favoriteColor"
     
     @State private var favoriteColor: String = ""
     @State private var resultColor: String = "No color saved"
+    @State private var resultColorStruct: FavoriteColorPersistenceViewStruct_FavoriteColorStruct
     
     var body: some View {
         VStack(spacing: 20) {
-            // ✅ Input Text Field
             TextField("Enter favorite color", text: $favoriteColor)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
             
-            // ✅ Save Button
             Button("Save") {
                 UserDefaults.standard.set(favoriteColor, forKey: favoriteKey)
                 resultColor = favoriteColor // Update UI
             }
             .buttonStyle(.borderedProminent)
             
-            // ✅ Dynamically Change Background Color
             Text("Favorite color: \(resultColor)")
                 .bold()
                 .foregroundColor(.white)
                 .padding()
                 .frame(width: 200, height: 50)
-                .background(getColor(from: resultColor))
+                .background(FavoriteColorPersistenceViewStruct_getColor(from: resultColor))
                 .cornerRadius(8)
                 .animation(.easeInOut, value: resultColor) // Smooth transition
         }
@@ -264,8 +266,10 @@ struct FavoriteColorPersistenceView: View {
         }
     }
     
-    // ✅ Convert Color Name to SwiftUI Color
-    private func getColor(from name: String) -> Color {
+    
+    
+    
+    private func FavoriteColorPersistenceViewStruct_getColor(from name: String) -> Color {
         switch name.lowercased() {
             case "red": return .red
             case "blue": return .blue
@@ -281,9 +285,8 @@ struct FavoriteColorPersistenceView: View {
     }
 }
 
-// ✅ Preview
 struct FavoriteColorPersistenceView_Previews: PreviewProvider {
     static var previews: some View {
-        FavoriteColorPersistenceView()
+        PersistenceExamples_FavoriteColorString3()
     }
 }
