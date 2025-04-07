@@ -24,71 +24,69 @@ import SwiftUI
  Give the BlueRectangle a width of 150 and height of 80, with rounded corners (hint: .cornerRadius(_)).
  Add a 5-pixel white stroke around the GreenCapsule while keeping the fill color green.
  
- */
-
-extension Challenges{
-    extension Ch1{
-        struct Shapes: View {
+*/
+extension Challenge1{
+    struct Shapes: View {
+        
+        var body: some View {
+            ZStack{
+                LinearGradient(
+                    colors: [.blue, .purple, .orange],  // 🌅 Sunset colors!
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .ignoresSafeArea()  // Covers the whole screen
+                                    //            Rectangle().foregroundColor(.black).ignoresSafeArea()
+                VStack{
+                    RedCircle()
+                    
+                    HStack(spacing: 20.0){
+                        BlueRectangle()
+                        GreenCapsule()
+                    }
+                    
+                }.padding()
+            }
+        }
+    }
+    
+    
+    struct RedCircle: View {
+        var body: some View {
+            Circle().fill(.red.gradient)
+                .frame(
+                    width: 100,
+                    height: 100
+                )
+        }
+    }
+    
+    struct BlueRectangle: View {
+        var body: some View {
+            Rectangle().fill(.blue.gradient)
+                .frame(width: 150, height:80).cornerRadius(10)
+            LinearGradient(gradient: Gradient(colors: [.black, .gray]), startPoint: .top, endPoint: .bottom)
             
-            var body: some View {
-                ZStack{
-                    LinearGradient(
-                        colors: [.blue, .purple, .orange],  // 🌅 Sunset colors!
-                        startPoint: .top,
-                        endPoint: .bottom
-                    )
-                    .ignoresSafeArea()  // Covers the whole screen
-                                        //            Rectangle().foregroundColor(.black).ignoresSafeArea()
-                    VStack{
-                        RedCircle()
-                        
-                        HStack(spacing: 20.0){
-                            BlueRectangle()
-                            GreenCapsule()
-                        }
-                        
-                    }.padding()
-                }
-            }
+            
         }
-        
-        
-        struct RedCircle: View {
-            var body: some View {
-                Circle().fill(.red.gradient)
-                    .frame(
-                        width: 100,
-                        height: 100
-                    )
-            }
+    }
+    
+    struct GreenCapsule: View {
+        var body: some View {
+            Capsule()
+                .fill(.green.gradient)
+            //            .stroke(Color.orange,lineWidth: 5)
+                .overlay(Capsule().stroke(Color.white, lineWidth: 5))
+            
         }
-        
-        struct BlueRectangle: View {
-            var body: some View {
-                Rectangle().fill(.blue.gradient)
-                    .frame(width: 150, height:80).cornerRadius(10)
-                LinearGradient(gradient: Gradient(colors: [.black, .gray]), startPoint: .top, endPoint: .bottom)
-                
-                
-            }
-        }
-        
-        struct GreenCapsule: View {
-            var body: some View {
-                Capsule()
-                    .fill(.green.gradient)
-                //            .stroke(Color.orange,lineWidth: 5)
-                    .overlay(Capsule().stroke(Color.white, lineWidth: 5))
-                
-            }
-        }
-        
-        
     }
 }
+        
+        
+    
     
     #Preview {
-        Challenges.Shapes()
+        Challenge1.Shapes()
     }
 
 
